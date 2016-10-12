@@ -30,52 +30,61 @@
 #                        Thomas
 
 
-Class Father  
-  def initialize  
-    puts 'I am the Father.'  
-  end  
-  
-  # define fatherName --> father name is 'Thomas' . 
-end  
 
+  # define fatherName --> father name is 'Thomas' .  
+ 
 
-Class Mother  
-  def initialize  
-    puts 'I am the Mother.'  
+class Parent
+  def father
+    @f="Thomas"
+    return @f
   end
-
+  def mother
+    @m="Martha"
+    return @m
+  end
   # define motherName -> mother's name is Martha
 
 end  
 
 # Class Son inherits his last name from his Father  
-Class Son < Father 
-  def firstName  
-    puts "My name is Bruce"  
+class Son < Parent
+  def son
+    @b= "Bruce"
+    return @b
   end
-
+  def firstName  
+    puts "First name is"
+    puts son 
+  end
+  def middleName
+    puts "Middle Name is"
+    puts mother  
+  end
+  def lastName
+    puts "Last Name is"
+    puts father
+  end
   # define lastName --> last name should be father's name
-
+  def surName
+    puts "Surname is"
+    @s="Wayne"
+    puts @s
+  end
   def fullName
+    print "My name is "
     # Print 'My name is Bruce Martha Thomas'
-    Print firstName motherName fatherName 
+    puts "#{@b} #{@m} #{@f} #{@s}"
+  end
+  def iam_bat_man
+    puts "I am Batman"
   end
 end
 
-
-# Class Son is sub-Class of Mother   
-Class Son < Mother
-  def firstName  
-    puts 'My name is Bruce Wayne'  
-  end 
-
-  # define secondName --> second name should be Mother's name
-
-  def fullName
-    # Print 'My name is Bruce Martha Thomas'
-    puts firstName secondName lastName
-  end
-end
-
-# instantiate an object and print his firstName, secondName, lastName fullName.
-
+a=Son.new
+a.firstName
+a.middleName
+a.lastName
+a.surName
+a.fullName
+a.iam_bat_man
